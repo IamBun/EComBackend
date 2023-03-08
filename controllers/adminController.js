@@ -155,7 +155,7 @@ exports.deleteProduct = async (req, res, next) => {
     const product = await Product.findById(prodId);
     product.image.forEach((ele) => clearImage(ele));
     // const product = await Product.findByIdAndDelete(prodId);
-    await product.delete();
+    await Product.findByIdAndDelete(prodId);
     res.status(200).json({ message: "Deleted !" });
   } catch (err) {
     if (!err.statusCode) {
