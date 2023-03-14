@@ -69,7 +69,7 @@ exports.getCart = async (req, res, next) => {
 exports.postCart = async (req, res, next) => {
   const userId = req.params.userId;
   const prodId = req.body.productId;
-  let quantity = req.body.quantity;
+  let quantity = parseInt(req.body.quantity);
   try {
     if (!userId) {
       const error = new Error("User not found");
